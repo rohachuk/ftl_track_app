@@ -1,0 +1,12 @@
+<p>Hello, <%= current_user.email %></p>
+<%= link_to "Log out", destroy_user_session_path, data: { "turbo-method": :delete } %>
+<%= link_to "New spend", new_spend_path %>
+
+<% @spends.each do |spend| %>
+  <div>
+    <%= link_to spend.title, spend_url(spend) %>
+    <p><%= spend.description %></p>
+    <p><%= spend.amount %></p>
+    <p><%= spend.category %></p>
+  </div>
+<% end %>

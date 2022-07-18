@@ -1,0 +1,8 @@
+<div>
+  <p><%= @spend.title %></p>
+  <p><%= @spend.description %></p>
+  <p><%= @spend.amount %></p>
+  <p><%= @spend.category %></p>
+  <%= link_to "Delete", spend_path(@spend), data: { "turbo-method": :delete } %>
+  <%= link_to "Edit", edit_spend_path(@spend) %>
+</div>
