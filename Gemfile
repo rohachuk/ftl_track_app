@@ -45,6 +45,9 @@ gem "bootsnap", require: false
 gem 'devise'
 gem 'filterrific'
 
+gem "jquery-rails"
+gem "bootstrap"
+gem "sassc-rails"
 # Use Sass to process CSS
 # gem "sassc-rails"
 

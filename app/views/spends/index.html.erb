@@ -2,6 +2,10 @@
 <p>Your total spends value: <%= current_user.total_spends_value %></p>
 <%= link_to "Log out", destroy_user_session_path, data: { "turbo-method": :delete } %>
 <%= link_to "New spend", new_spend_path %>
+<%= link_to "Share list", generate_link_url, data: {remote: true, type: "script", method: :post} %>
+<div class="shared_link">
+
+</div>
 
 <%= form_for_filterrific @filterrific do |f| %>
   <div>
@@ -25,8 +29,8 @@
 <% @spends.each do |spend| %>
   <div>
     <%= link_to spend.title, spend_url(spend) %>
-    <p><%= spend.description %></p>
-    <p><%= spend.amount %></p>
-    <p><%= spend.category %></p>
+    <p>Description: <%= spend.description %></p>
+    <p>Amount: <%= spend.amount %></p>
+    <p>Category: <%= spend.category %></p>
   </div>
 <% end %>

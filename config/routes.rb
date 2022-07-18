@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   # root "articles#index"
   root "spends#index"
   resources :spends
+  get "share", params: :token, controller: "spends", action: "share_show"
+  post "generate_link", to: "user#generate_link", xhr: true
 end

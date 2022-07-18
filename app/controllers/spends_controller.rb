@@ -1,4 +1,5 @@
 class SpendsController < ApplicationController
+  before_action :authenticate_user!, except: :share_show
   before_action :has_access?, only: [:show, :edit, :destroy]
   def index
     @filterrific = initialize_filterrific(
@@ -37,13 +38,19 @@ class SpendsController < ApplicationController
     redirect_to root_path, status: :see_other
   end
 
-  def has_access?
-    redirect_to root_path unless Spend.find_by(id: params[:id]).user == current_user
+  def share_show
+    user = User.find_by(url_token: params[:token])
+    return redirect_to root_path if user.nil?
+    @share_spends = user.spends
   end
 
   private
   def spend_params
     params.require(:spend).permit(:title, :description, :amount, :category)
+  end
+
+  def has_access?
+    redirect_to root_path unless Spend.find_by(id: params[:id]).user == current_user
   end
 
 end

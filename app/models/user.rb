@@ -13,4 +13,9 @@ class User < ApplicationRecord
     end
     total_value
   end
+
+    def generate_token
+      self.update(url_token: SecureRandom.urlsafe_base64(64, false))
+      url_token
+    end
 end

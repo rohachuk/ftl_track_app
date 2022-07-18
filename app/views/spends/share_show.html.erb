@@ -1,0 +1,8 @@
+<% @share_spends.each do |spend| %>
+  <div>
+    <%= spend.title %>
+    <p>Description: <%= spend.description %></p>
+    <p>Amount: <%= spend.amount %></p>
+    <p>Category: <%= spend.category %></p>
+  </div>
+<% end %>
