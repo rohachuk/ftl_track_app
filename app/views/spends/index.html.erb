@@ -1,6 +1,26 @@
 <p>Hello, <%= current_user.email %></p>
+<p>Your total spends value: <%= current_user.total_spends_value %></p>
 <%= link_to "Log out", destroy_user_session_path, data: { "turbo-method": :delete } %>
 <%= link_to "New spend", new_spend_path %>
+
+<%= form_for_filterrific @filterrific do |f| %>
+  <div>
+    Amount by
+    <%= f.select(:filter_by_amount, ["desc", "asc"]) %>
+  </div>
+  <div>
+    Category
+    <%= f.select(:filter_by_category, Spend.categories) %>
+  </div>
+  <div>
+    <%= link_to(
+          'Reset filters',
+          reset_filterrific_url,
+          ) %>
+  </div>
+  <%= f.submit 'Filter' %>
+  <%= render_filterrific_spinner %>
+<%end %>
 
 <% @spends.each do |spend| %>
   <div>

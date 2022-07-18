@@ -1,0 +1,19 @@
+<div id="filterrific_results">
+
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Amount</th>
+      <th>Category</th>
+    </tr>
+    <% spends.each do |spend| %>
+      <tr>
+        <td><%= link_to(spend.title, spend_path(spend)) %></td>
+        <td><%= spend.description %></td>
+        <td><%= spend.amount %></td>
+        <td><%= spend.category %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

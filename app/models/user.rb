@@ -5,4 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :spends
+
+  def total_spends_value
+    total_value = 0
+    spends.each do |spend|
+      total_value += spend.amount
+    end
+    total_value
+  end
 end

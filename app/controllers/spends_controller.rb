@@ -1,7 +1,11 @@
 class SpendsController < ApplicationController
   before_action :has_access?, only: [:show, :edit, :destroy]
   def index
-    @spends = current_user.spends
+    @filterrific = initialize_filterrific(
+      Spend,
+      params[:filterrific]
+    ) or return
+    @spends = @filterrific.find
   end
 
   def new
