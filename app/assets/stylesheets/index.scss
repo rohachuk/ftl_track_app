@@ -9,9 +9,27 @@
   }
 }
 
-.spends{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
+.content{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+
+  .spends{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .spend{
+      border: 1px solid #c2c2c2;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 9px 9px 36px -9px #000000;
+    }
+  }
+  .info{
+    text-align: center;
+  }
 }

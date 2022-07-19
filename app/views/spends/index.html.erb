@@ -1,7 +1,5 @@
 <div class="shared_link"></div>
 <div class="filter">
-  <p>Your total spends value: <%= current_user.total_spends_value %></p>
-  <hr>
   <%= form_for_filterrific @filterrific do |f| %>
     <div>
       <div>
@@ -27,13 +25,18 @@
 </div>
 
 <hr>
-<div class="spends">
-<% @spends.each do |spend| %>
-  <div class="spend">
-    <%= link_to spend.title, spend_url(spend) %>
-    <p>Description: <%= spend.description %></p>
-    <p>Amount: <%= spend.amount %></p>
-    <p>Category: <%= spend.category %></p>
+<div class="content">
+  <div class="spends">
+    <% @spends.each do |spend| %>
+      <div class="spend">
+        <%= link_to spend.title, spend_url(spend) %>
+        <p>Description: <%= spend.description %></p>
+        <p>Amount: <%= spend.amount %></p>
+        <p>Category: <%= spend.category %></p>
+      </div>
+    <% end %>
+</div>
+  <div class="info">
+    <p>Your total spends value: <%= current_user.total_spends_value %></p>
   </div>
-<% end %>
 </div>

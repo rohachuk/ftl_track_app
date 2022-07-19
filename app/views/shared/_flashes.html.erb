@@ -1,7 +1,7 @@
 <% flash.each do |type, message| %>
   <div>
     <% if message.is_a?(Array) %>
-      <% error.each do |msg| %>
+      <% message.each do |msg| %>
         <p><%= msg %></p>
       <% end %>
     <% else %>
